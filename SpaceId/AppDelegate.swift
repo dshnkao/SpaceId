@@ -11,6 +11,9 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     //@IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var statusMenu: NSMenu!
+    
+    let statusItem = NSStatusBar.system().statusItem(withLength: 27)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.setActivationPolicy(.accessory)
@@ -18,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         addActiveApplicationEvent()
         addLeftMouseClickEvent()
         updateSpaceNumber(())
+        addStatusBarItem()
     }
     func test(_ notification: Notification) {
         print("test")
@@ -28,7 +32,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     private func updateSpaceNumber(_ : Any) {
-        print(SpaceIdentifier().getActiveSpaceNumber())
+        let num = SpaceIdentifier().getActiveSpaceNumber()
+        print(num)
+        statusItem.button?.image = NSImage(named: String(num))
     }
     
     private func addActiveWorkSpaceEvent() {
@@ -52,6 +58,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     private func addLeftMouseClickEvent() {
         NSEvent.addGlobalMonitorForEvents(matching: NSEventMask.leftMouseDown, handler: updateSpaceNumber)
+    }
+    
+    private func addStatusBarItem() {
+        if let button = statusItem.button {
+            button.imageScaling = NSImageScaling(rawValue: UInt(0))!
+            button.image = NSImage(named: "0")
+        }
+    }
+    
+    @IBAction func quitClicked(sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
     }
 }
 

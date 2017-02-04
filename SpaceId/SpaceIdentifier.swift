@@ -12,6 +12,20 @@ import Swiftz
 
 class SpaceIdentifier {
     
+    /* parses ~/Library/Preferences/com.apple.spaces to acquire
+     *   - an ordered list of all spaces and their corresponding `Display Identifier`
+     *   - a mapping of [WindowNumber : SpaceUUID]
+     *
+     * get all windows that are in an active space using `CGWindowListCopyWindowInfo`
+     *   - multiple monitors will have multiple active spaces
+     * 
+     * combine these two to identify the active space(s)
+     * pick space with `Display Identifier: Main` if user is focused on the main monitor, and other if not
+     *
+     * Can only support up to two monitors
+     * Can be replaced with private api `CGS`
+     */
+    
     func getActiveSpaceNumber() -> Int {
         guard let defaults = parseSpacesPlist(),
               let spaceDisplayConfiguration = defaults.dictionary(forKey: "SpacesDisplayConfiguration")
@@ -21,13 +35,21 @@ class SpaceIdentifier {
         }
         let spaceProperties: [SpaceProperty] = parseSpaceProperties(dict: spaceDisplayConfiguration)
         let spaces: [Space] = parseSpaces(dict: spaceDisplayConfiguration)
-        let activeSpaceUUIDs = getActiveSpaceUUIDs(spaceIdByWindowNumber: getSpaceIdByWindowId(spaceProperties: spaceProperties))
-        guard let activeSpace = spaces.enumerated().first(where: { (offset: Int, s: Space) -> Bool in
-            let isMain = isActiveScreenMain()
-            return activeSpaceUUIDs.contains(s.uuid) &&
-                   ((s.displayIdentifier == "Main" && isMain) || (s.displayIdentifier != "Main" && !isMain))
+        let activeSpaceUUIDs: Set<String> =
+            getActiveSpaceUUIDs(spaceIdByWindowNumber: getSpaceIdByWindowId(spaceProperties: spaceProperties))
+        let isMain = isActiveScreenMain()
+        let firstChoice = spaces.enumerated().first(where: { (offset: Int, s: Space) -> Bool in
+            activeSpaceUUIDs.contains(s.uuid) &&
+            ((s.displayIdentifier == "Main" && isMain) || (s.displayIdentifier != "Main" && !isMain))
         })
-        else { return 0 }
+        // com.apple.spaces doesn't seem to update when disconnecting a monitor
+        let secondChoice = spaces.enumerated().first(where: { activeSpaceUUIDs.contains($1.uuid) })
+        guard let activeSpace = firstChoice ?? secondChoice else {
+            print("active space not found")
+            print("active space uuids: ", activeSpaceUUIDs)
+            print("all spaces in order: ", spaces)
+            return 0
+        }
         return activeSpace.offset + 1
     }
 
@@ -82,8 +104,7 @@ class SpaceIdentifier {
         return ret
     }
     
-    /* [WindowId : [SpaceUUID]]
-     */
+    /* [WindowId : [SpaceUUID]] */
     private func getSpaceIdByWindowId(spaceProperties: [SpaceProperty]) -> Dictionary<Int, String> {
         var spaceIdByWindowId = Dictionary<Int, [String]>()
         for property in spaceProperties {

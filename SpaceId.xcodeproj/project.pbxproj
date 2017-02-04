@@ -16,6 +16,7 @@
 		19A7ACB81E44D8A1004FBE39 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7ACA91E44D866004FBE39 /* Swiftz.framework */; };
 		19A7ACBA1E44D8D8004FBE39 /* Swiftz.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 19A7ACA91E44D866004FBE39 /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A7ACC41E459839004FBE39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A7ACC31E459839004FBE39 /* Assets.xcassets */; };
+		19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7ACC91E46225E004FBE39 /* ButtonImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		19A7AC991E44D4C0004FBE39 /* SpaceProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceProperty.swift; sourceTree = "<group>"; };
 		19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swiftz.xcodeproj; path = Dependencies/Swiftz/Swiftz.xcodeproj; sourceTree = "<group>"; };
 		19A7ACC31E459839004FBE39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		19A7ACC91E46225E004FBE39 /* ButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				19A7AC831E44D493004FBE39 /* Info.plist */,
+				19A7ACC91E46225E004FBE39 /* ButtonImage.swift */,
 				19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */,
 				19A7AC971E44D4C0004FBE39 /* Space.swift */,
 				19A7AC981E44D4C0004FBE39 /* SpaceIdentifier.swift */,
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */,
+				19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */,
 				19A7AC7D1E44D493004FBE39 /* AppDelegate.swift in Sources */,
 				19A7AC9B1E44D4C0004FBE39 /* SpaceIdentifier.swift in Sources */,
 				19A7AC9C1E44D4C0004FBE39 /* SpaceProperty.swift in Sources */,

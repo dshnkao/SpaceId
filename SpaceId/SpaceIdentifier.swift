@@ -50,6 +50,10 @@ class SpaceIdentifier {
             print("all spaces in order: ", spaces)
             return 0
         }
+        print(spaces)
+        print(activeSpaceUUIDs)
+        print(firstChoice as Any)
+        print(secondChoice as Any)
         return activeSpace.offset + 1
     }
 

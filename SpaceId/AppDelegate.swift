@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private func updateSpaceNumber(_ : Any) {
         let num = SpaceIdentifier().getActiveSpaceNumber()
         print(num)
-        statusItem.button?.image = NSImage(named: String(num))
+        statusItem.button?.image = ButtonImage.sharedInstance.roundedSquare(number: num)
     }
     
     private func addActiveWorkSpaceEvent() {
@@ -62,9 +62,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     private func addStatusBarItem() {
         if let button = statusItem.button {
-            button.imageScaling = NSImageScaling(rawValue: UInt(0))!
-            button.image = NSImage(named: "0")
+            button.image = ButtonImage.sharedInstance.roundedSquare(number: 0)
         }
+
     }
     
     @IBAction func quitClicked(sender: NSMenuItem) {

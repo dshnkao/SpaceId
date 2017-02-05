@@ -15,6 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     let statusItem = NSStatusBar.system().statusItem(withLength: 27)
     
+    let spaceIdentifier = SpaceIdentifier()
+    let buttonImage = ButtonImage()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSApp.setActivationPolicy(.accessory)
         addActiveWorkSpaceEvent()
@@ -22,18 +25,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         addLeftMouseClickEvent()
         updateSpaceNumber(())
     }
-    func test(_ notification: Notification) {
-        print("test")
-    }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         NSApp.terminate(self)
     }
     
     private func updateSpaceNumber(_ : Any) {
-        usleep(10000) // wait for com.apple.spaces get updated
-        let number = SpaceIdentifier().getActiveSpaceNumber()
-        statusItem.button?.image = ButtonImage.sharedInstance.roundedSquare(text: String(number))
+        let number = spaceIdentifier.getActiveSpaceNumber()
+        statusItem.button?.image = buttonImage.roundedSquare(text: String(number))
         print(number)
     }
     

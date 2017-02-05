@@ -11,12 +11,12 @@
 		19A7AC821E44D493004FBE39 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19A7AC801E44D493004FBE39 /* MainMenu.xib */; };
 		19A7AC8D1E44D493004FBE39 /* SpaceIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC8C1E44D493004FBE39 /* SpaceIdTests.swift */; };
 		19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC971E44D4C0004FBE39 /* Space.swift */; };
-		19A7AC9B1E44D4C0004FBE39 /* SpaceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC981E44D4C0004FBE39 /* SpaceIdentifier.swift */; };
 		19A7AC9C1E44D4C0004FBE39 /* SpaceProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC991E44D4C0004FBE39 /* SpaceProperty.swift */; };
 		19A7ACB81E44D8A1004FBE39 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7ACA91E44D866004FBE39 /* Swiftz.framework */; };
-		19A7ACBA1E44D8D8004FBE39 /* Swiftz.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 19A7ACA91E44D866004FBE39 /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		19A7ACBA1E44D8D8004FBE39 /* Swiftz.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 19A7ACA91E44D866004FBE39 /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A7ACC41E459839004FBE39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A7ACC31E459839004FBE39 /* Assets.xcassets */; };
 		19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7ACC91E46225E004FBE39 /* ButtonImage.swift */; };
+		19A7ACCE1E46CEC6004FBE39 /* SpaceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,14 +86,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		19A7ACB91E44D8B2004FBE39 /* CopyFiles */ = {
+		19A7ACB91E44D8B2004FBE39 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				19A7ACBA1E44D8D8004FBE39 /* Swiftz.framework in CopyFiles */,
+				19A7ACBA1E44D8D8004FBE39 /* Swiftz.framework in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -107,11 +108,12 @@
 		19A7AC8C1E44D493004FBE39 /* SpaceIdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceIdTests.swift; sourceTree = "<group>"; };
 		19A7AC8E1E44D493004FBE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A7AC971E44D4C0004FBE39 /* Space.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
-		19A7AC981E44D4C0004FBE39 /* SpaceIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceIdentifier.swift; sourceTree = "<group>"; };
 		19A7AC991E44D4C0004FBE39 /* SpaceProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceProperty.swift; sourceTree = "<group>"; };
 		19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swiftz.xcodeproj; path = Dependencies/Swiftz/Swiftz.xcodeproj; sourceTree = "<group>"; };
 		19A7ACC31E459839004FBE39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19A7ACC91E46225E004FBE39 /* ButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonImage.swift; sourceTree = "<group>"; };
+		19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceIdentifier.swift; sourceTree = "<group>"; };
+		19A7ACD21E46D4BF004FBE39 /* SpaceId-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaceId-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,10 +161,11 @@
 				19A7ACC91E46225E004FBE39 /* ButtonImage.swift */,
 				19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */,
 				19A7AC971E44D4C0004FBE39 /* Space.swift */,
-				19A7AC981E44D4C0004FBE39 /* SpaceIdentifier.swift */,
 				19A7AC991E44D4C0004FBE39 /* SpaceProperty.swift */,
+				19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */,
 				19A7ACC31E459839004FBE39 /* Assets.xcassets */,
 				19A7AC801E44D493004FBE39 /* MainMenu.xib */,
+				19A7ACD21E46D4BF004FBE39 /* SpaceId-Bridging-Header.h */,
 			);
 			path = SpaceId;
 			sourceTree = "<group>";
@@ -192,6 +195,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		19A7ACD01E46D2AF004FBE39 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		19A7AC781E44D493004FBE39 /* SpaceId */ = {
 			isa = PBXNativeTarget;
@@ -200,7 +213,8 @@
 				19A7AC751E44D493004FBE39 /* Sources */,
 				19A7AC761E44D493004FBE39 /* Frameworks */,
 				19A7AC771E44D493004FBE39 /* Resources */,
-				19A7ACB91E44D8B2004FBE39 /* CopyFiles */,
+				19A7ACB91E44D8B2004FBE39 /* Copy Files */,
+				19A7ACD01E46D2AF004FBE39 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -243,6 +257,7 @@
 					19A7AC781E44D493004FBE39 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = VBQ33APC27;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					19A7AC871E44D493004FBE39 = {
@@ -357,8 +372,8 @@
 				19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */,
 				19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */,
 				19A7AC7D1E44D493004FBE39 /* AppDelegate.swift in Sources */,
-				19A7AC9B1E44D4C0004FBE39 /* SpaceIdentifier.swift in Sources */,
 				19A7AC9C1E44D4C0004FBE39 /* SpaceProperty.swift in Sources */,
+				19A7ACCE1E46CEC6004FBE39 /* SpaceIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,12 +506,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VBQ33APC27;
 				INFOPLIST_FILE = SpaceId/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dshnkao.SpaceId;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpaceId/SpaceId-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -505,12 +523,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = VBQ33APC27;
 				INFOPLIST_FILE = SpaceId/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dshnkao.SpaceId;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpaceId/SpaceId-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

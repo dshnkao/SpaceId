@@ -13,5 +13,5 @@ struct Space {
     let uuid: String
     let type: Int
     let managedSpaceId: Int
-    let displayIdentifier: String
+    let number: Int
 }

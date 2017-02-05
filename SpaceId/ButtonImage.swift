@@ -10,8 +10,6 @@ import Foundation
 
 class ButtonImage {
     
-    static let sharedInstance = ButtonImage()
-    
     private let size = CGSize(width: 16, height: 16)
 
     private func textAttributes(color: NSColor) -> [String: Any] {

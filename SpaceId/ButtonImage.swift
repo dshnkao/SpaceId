@@ -1,6 +1,5 @@
 //
-//  ButtonImage.swift
-//  SpaceId
+//  ButtonImage.swift//  SpaceId
 //
 //  Created by Dennis Kao on 5/2/17.
 //  Copyright © 2017 Dennis Kao. All rights reserved.
@@ -13,29 +12,26 @@ class ButtonImage {
     
     static let sharedInstance = ButtonImage()
     
-    func roundedSquare(number: Int) -> NSImage {
-        let text = String(number)
-        let size = CGSize(width: 16, height: 16)
-        let image = NSImage(size: size)
-        
-        let textColor = NSColor.white
+    private let size = CGSize(width: 16, height: 16)
+
+    private func textAttributes(color: NSColor) -> [String: Any] {
         let font = NSFont.boldSystemFont(ofSize: 11)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
         
-        let textFontAttributes = [
-            NSFontAttributeName: font,
-            NSForegroundColorAttributeName: textColor,
-            NSParagraphStyleAttributeName: paragraphStyle
-            ] as [String : Any]
-        
+        return [ NSFontAttributeName: font,
+                 NSForegroundColorAttributeName: color,
+                 NSParagraphStyleAttributeName: paragraphStyle
+               ] as [String : Any]
+    }
+    
+    func roundedSquare(text: String) -> NSImage {
+        let image = NSImage(size: size)
         image.lockFocus()
-        
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let path = NSBezierPath(roundedRect: rect, xRadius: 2, yRadius: 2)
         path.fill()
-        text.drawVerticallyCentered(in: rect, withAttributes: textFontAttributes)
-        
+        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.white))
         image.unlockFocus()
         return image
     }

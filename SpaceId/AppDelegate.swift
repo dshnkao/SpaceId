@@ -1,18 +1,8 @@
-//
-//  AppDelegate.swift
-//  SpaceId
-//
-//  Created by Dennis Kao on 2/2/17.
-//  Copyright © 2017 Dennis Kao. All rights reserved.
-//
 import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
-    
-    //@IBOutlet weak var window: NSWindow!
-    @IBOutlet weak var statusMenu: NSMenu!
-    
+        
     let statusItem = NSStatusBar.system().statusItem(withLength: 27)
     
     let spaceIdentifier = SpaceIdentifier()
@@ -57,10 +47,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     private func addLeftMouseClickEvent() {
         NSEvent.addGlobalMonitorForEvents(matching: NSEventMask.leftMouseDown, handler: updateSpaceNumber)
-    }
-    
-    @IBAction func quitClicked(sender: NSMenuItem) {
-        NSApplication.shared().terminate(self)
     }
 }
 

@@ -1,10 +1,3 @@
-//
-//  ButtonImage.swift//  SpaceId
-//
-//  Created by Dennis Kao on 5/2/17.
-//  Copyright © 2017 Dennis Kao. All rights reserved.
-//
-
 import Cocoa
 import Foundation
 

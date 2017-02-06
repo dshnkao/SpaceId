@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     private func updateSpaceNumber(_ : Any) {
+        usleep(10000)
         let number = spaceIdentifier.getActiveSpaceNumber()
         statusItem.button?.image = buttonImage.roundedSquare(text: String(number))
         print(number)

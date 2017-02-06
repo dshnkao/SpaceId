@@ -16,15 +16,39 @@ class ButtonImage {
                ] as [String : Any]
     }
     
-    func roundedSquare(text: String) -> NSImage {
+    func borderedSquare(text: String) -> NSImage {
+        let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         image.lockFocus()
-        let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let path = NSBezierPath(roundedRect: rect, xRadius: 3, yRadius: 3)
         path.lineWidth = 2
         path.stroke()
         text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.black))
         image.unlockFocus()
+        image.isTemplate = true
+        return image
+    }
+    
+    func filledSquare(text: String) -> NSImage {
+        let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
+        let image = NSImage(size: size)
+        let image1 = NSImage(size: size)
+        let image2 = NSImage(size: size)
+        
+        image1.lockFocus()
+        let path = NSBezierPath(roundedRect: rect, xRadius: 3, yRadius: 3)
+        path.fill()
+        image1.unlockFocus()
+        
+        image2.lockFocus()
+        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.black))
+        image2.unlockFocus()
+
+        image.lockFocus()
+        image1.draw(in: rect, from: NSZeroRect, operation: NSCompositingOperation.sourceOut, fraction: 1.0)
+        image2.draw(in: rect, from: NSZeroRect, operation: NSCompositingOperation.destinationOut, fraction: 1.0)
+        image.unlockFocus()
+        
         image.isTemplate = true
         return image
     }

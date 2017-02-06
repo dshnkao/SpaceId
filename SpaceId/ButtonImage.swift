@@ -20,10 +20,12 @@ class ButtonImage {
         let image = NSImage(size: size)
         image.lockFocus()
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
-        let path = NSBezierPath(roundedRect: rect, xRadius: 2, yRadius: 2)
-        path.fill()
-        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.white))
+        let path = NSBezierPath(roundedRect: rect, xRadius: 3, yRadius: 3)
+        path.lineWidth = 2
+        path.stroke()
+        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.black))
         image.unlockFocus()
+        image.isTemplate = true
         return image
     }
     

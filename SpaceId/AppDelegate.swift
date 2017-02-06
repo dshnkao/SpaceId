@@ -2,9 +2,10 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
-        
-    let statusItem = NSStatusBar.system().statusItem(withLength: 27)
     
+    @IBOutlet weak var statusMenu: NSMenu!
+    
+    let statusItem = NSStatusBar.system().statusItem(withLength: 27)
     let spaceIdentifier = SpaceIdentifier()
     let buttonImage = ButtonImage()
     
@@ -13,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         addActiveWorkSpaceEvent()
         addActiveApplicationEvent()
         addLeftMouseClickEvent()
+        addMenuItems()
         updateSpaceNumber(())
     }
     
@@ -48,6 +50,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     private func addLeftMouseClickEvent() {
         NSEvent.addGlobalMonitorForEvents(matching: NSEventMask.leftMouseDown, handler: updateSpaceNumber)
+    }
+    
+    private func addMenuItems() {
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Preferences", action: nil, keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Options", action: nil, keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(quitButton(_:)), keyEquivalent: ""))
+        statusItem.menu = menu
+    }
+    
+    func quitButton(_ sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
     }
 }
 

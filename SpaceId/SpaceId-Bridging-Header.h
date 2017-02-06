@@ -1,9 +1,8 @@
-#import <Foundation/Foundation.h>
 
-typedef int CGSConnectionID;
-typedef int CGSSpaceID;
-typedef int CGSSpaceType;
+#ifndef SpaceId_Bridging_Header_h
+#define SpaceId_Bridging_Header_h
 
 id CGSCopyManagedDisplaySpaces(int conn);
 int _CGSDefaultConnection();
-CGSSpaceType CGSSpaceGetType(CGSConnectionID CID, CGSSpaceID SID);
+
+#endif

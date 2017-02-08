@@ -1,7 +1,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
     
     let spaceIdentifier = SpaceIdentifier()
     let observer = Observer()

@@ -1,11 +1,3 @@
-//
-//  Observer.swift
-//  SpaceId
-//
-//  Created by Dennis Kao on 8/2/17.
-//  Copyright © 2017 Dennis Kao. All rights reserved.
-//
-
 import Cocoa
 import Foundation
 

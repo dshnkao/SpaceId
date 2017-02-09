@@ -5,5 +5,5 @@ struct Space {
     let uuid: String
     let type: Int
     let managedSpaceId: Int
-    let number: Int
+    let number: Int?            // fullscreen apps don't have a number
 }

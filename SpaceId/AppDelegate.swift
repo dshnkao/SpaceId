@@ -19,9 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private func updateSpaceNumber(_ : Any) {
         usleep(10000)
-        let number = spaceIdentifier.getActiveSpaceNumber()
-        statusItem.updateMenuImage(spaceNumber: number)
-        print(number)
+        let info = spaceIdentifier.getSpaceInfo()
+        statusItem.updateMenuImage(spaceInfo: info)
+        print(info)
     }
 }
 

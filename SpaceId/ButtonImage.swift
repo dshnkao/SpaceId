@@ -6,31 +6,30 @@ class ButtonImage {
     private let size = CGSize(width: 16, height: 16)
     private let defaults = UserDefaults.standard
     
-    func createImage(text: String) -> NSImage {
-        guard let color = ColorOption(rawValue: defaults.integer(forKey: "ColorOption")),
-              let style = IconOption(rawValue: defaults.integer(forKey: "IconOption"))
-        else { return whiteOnBlackOneIcon(text: text) }
+    func createImage(spaceInfo: SpaceInfo) -> NSImage {
+        guard let color = Preference.Color(rawValue: defaults.integer(forKey: Preference.color)),
+              let style = Preference.Icon(rawValue: defaults.integer(forKey: Preference.icon))
+        else { return whiteOnBlackOneIcon(space: spaceInfo.keyboardFocusSpace) }
         switch style {
-        case IconOption.oneIcon:
-            if color == ColorOption.blackOnWhite {
-                return blackOnWhiteOneIcon(text: text)
+        case Preference.Icon.one:
+            if color == Preference.Color.blackOnWhite {
+                return blackOnWhiteOneIcon(space: spaceInfo.keyboardFocusSpace)
             } else {
-                return whiteOnBlackOneIcon(text: text)
+                return whiteOnBlackOneIcon(space: spaceInfo.keyboardFocusSpace)
             }
-        case IconOption.iconPerMonitor:
-            if color == ColorOption.blackOnWhite {
-                return blackOnWhitePerMonitor(text: text)
+        case Preference.Icon.perMonitor:
+            if color == Preference.Color.blackOnWhite {
+                return blackOnWhitePerMonitor(spaceInfo: spaceInfo)
             } else {
-                return whiteOnBlackPerMonitor(text: text)
+                return whiteOnBlackPerMonitor(spaceInfo: spaceInfo)
             }
-        case IconOption.iconPerSpace:
-            if color == ColorOption.blackOnWhite {
-                return blackOnWhitePerSpace(text: text)
+        case Preference.Icon.perSpace:
+            if color == Preference.Color.blackOnWhite {
+                return blackOnWhitePerSpace(spaceInfo: spaceInfo)
             } else {
-                return whiteOnBlackPerSpace(text: text)
+                return whiteOnBlackPerSpace(spaceInfo: spaceInfo)
             }
         }
-
     }
 
     private func textAttributes(color: NSColor) -> [String: Any] {
@@ -44,7 +43,8 @@ class ButtonImage {
                ] as [String : Any]
     }
     
-    private func blackOnWhiteOneIcon(text: String) -> NSImage {
+    private func blackOnWhiteOneIcon(space: Space?) -> NSImage {
+        let text = getTextForSpace(space: space)
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         image.lockFocus()
@@ -57,7 +57,8 @@ class ButtonImage {
         return image
     }
     
-    private func whiteOnBlackOneIcon(text: String) -> NSImage {
+    private func whiteOnBlackOneIcon(space: Space?) -> NSImage {
+        let text = getTextForSpace(space: space)
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         let image1 = NSImage(size: size)
@@ -81,20 +82,34 @@ class ButtonImage {
         return image
     }
     
-    private func whiteOnBlackPerMonitor(text: String) -> NSImage {
+    private func whiteOnBlackPerMonitor(spaceInfo: SpaceInfo) -> NSImage {
         return NSImage()
     }
     
-    private func blackOnWhitePerMonitor(text:String) -> NSImage {
+    private func blackOnWhitePerMonitor(spaceInfo:SpaceInfo) -> NSImage {
         return NSImage()
     }
     
-    private func whiteOnBlackPerSpace(text: String) -> NSImage {
+    private func whiteOnBlackPerSpace(spaceInfo: SpaceInfo) -> NSImage {
         return NSImage()
     }
     
-    private func blackOnWhitePerSpace(text: String) -> NSImage {
+    private func blackOnWhitePerSpace(spaceInfo: SpaceInfo) -> NSImage {
         return NSImage()
+    }
+    
+    private func getTextForSpace(space: Space?) -> String {
+        if let s = space {
+            if let num = s.number  {
+                return String(num)
+            }
+            else {
+                return "F"
+            }
+        }
+        else {
+            return "0"
+        }
     }
     
 }

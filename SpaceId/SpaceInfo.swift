@@ -2,5 +2,6 @@ import Foundation
 
 struct SpaceInfo {
     let keyboardFocusSpace: Space?
-    let spaces: [Space]
+    let activeSpaces: [Space]
+    let totalSpaceCount: Int
 }

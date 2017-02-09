@@ -6,7 +6,7 @@ class StatusItem: NSObject, NSMenuDelegate {
     private let item = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     private let defaults = UserDefaults.standard
     private let buttonImage = ButtonImage()
-    private var currentSpaceInfo = SpaceInfo(keyboardFocusSpace: nil, spaces: [])
+    private var currentSpaceInfo = SpaceInfo(keyboardFocusSpace: nil, activeSpaces: [], totalSpaceCount: 0)
     
     func createMenu() {
         item.menu = menuItems()

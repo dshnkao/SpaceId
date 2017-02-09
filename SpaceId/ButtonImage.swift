@@ -9,13 +9,13 @@ class ButtonImage {
     func createImage(spaceInfo: SpaceInfo) -> NSImage {
         guard let color = Preference.Color(rawValue: defaults.integer(forKey: Preference.color)),
               let style = Preference.Icon(rawValue: defaults.integer(forKey: Preference.icon))
-        else { return whiteOnBlackOneIcon(space: spaceInfo.keyboardFocusSpace) }
+        else { return whiteOnBlackOneIcon(text: getTextForSpace(space: spaceInfo.keyboardFocusSpace)) }
         switch style {
         case Preference.Icon.one:
             if color == Preference.Color.blackOnWhite {
-                return blackOnWhiteOneIcon(space: spaceInfo.keyboardFocusSpace)
+                return blackOnWhiteOneIcon(text: getTextForSpace(space: spaceInfo.keyboardFocusSpace))
             } else {
-                return whiteOnBlackOneIcon(space: spaceInfo.keyboardFocusSpace)
+                return whiteOnBlackOneIcon(text: getTextForSpace(space: spaceInfo.keyboardFocusSpace))
             }
         case Preference.Icon.perMonitor:
             if color == Preference.Color.blackOnWhite {
@@ -43,8 +43,7 @@ class ButtonImage {
                ] as [String : Any]
     }
     
-    private func blackOnWhiteOneIcon(space: Space?) -> NSImage {
-        let text = getTextForSpace(space: space)
+    private func blackOnWhiteOneIcon(text: String) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         image.lockFocus()
@@ -57,8 +56,7 @@ class ButtonImage {
         return image
     }
     
-    private func whiteOnBlackOneIcon(space: Space?) -> NSImage {
-        let text = getTextForSpace(space: space)
+    private func whiteOnBlackOneIcon(text: String) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         let image1 = NSImage(size: size)
@@ -82,15 +80,34 @@ class ButtonImage {
         return image
     }
     
+    private func perMonitor(icons: [NSImage], count: Int) -> NSImage {
+        let image = NSImage(size: CGSize(width: (size.width + 1) * CGFloat(count), height: size.height))
+        image.lockFocus()
+        var x: CGFloat = 0
+        for i in icons {
+            i.draw(at: NSPoint(x: x, y: 0), from: NSZeroRect, operation: NSCompositingOperation.color, fraction: 1.0)
+            x += size.width + 2
+        }
+        image.unlockFocus()
+        image.isTemplate = true
+        return image
+    }
+    
     private func whiteOnBlackPerMonitor(spaceInfo: SpaceInfo) -> NSImage {
-        return NSImage()
+        let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
+        let icons = spaces.map { whiteOnBlackOneIcon(text: getTextForSpace(space: $0)) }
+        return perMonitor(icons: icons, count: spaces.count)
     }
     
     private func blackOnWhitePerMonitor(spaceInfo:SpaceInfo) -> NSImage {
-        return NSImage()
+        let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
+        let icons = spaces.map { blackOnWhiteOneIcon(text: getTextForSpace(space: $0)) }
+        return perMonitor(icons: icons, count: spaces.count)
     }
     
     private func whiteOnBlackPerSpace(spaceInfo: SpaceInfo) -> NSImage {
+        let all = Array(1...spaceInfo.totalSpaceCount).map { whiteOnBlackOneIcon(text: String($0)) }
+        let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
         return NSImage()
     }
     

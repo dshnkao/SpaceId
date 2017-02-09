@@ -34,5 +34,6 @@ class Observer {
     func addLeftMouseClickEvent(handler: @escaping (NSEvent) -> Void) {
         NSEvent.addGlobalMonitorForEvents(matching: NSEventMask.leftMouseDown, handler: handler)
     }
+    
 
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1906705C1E4B352100D3A7A4 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1906705B1E4B352100D3A7A4 /* Observer.swift */; };
 		1906705F1E4B36F700D3A7A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1906705D1E4B36F700D3A7A4 /* MainMenu.xib */; };
-		190670611E4B3B6A00D3A7A4 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190670601E4B3B6A00D3A7A4 /* Menu.swift */; };
+		190670611E4B3B6A00D3A7A4 /* StatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190670601E4B3B6A00D3A7A4 /* StatusItem.swift */; };
 		19A7AC7D1E44D493004FBE39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */; };
 		19A7AC8D1E44D493004FBE39 /* SpaceIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC8C1E44D493004FBE39 /* SpaceIdTests.swift */; };
 		19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC971E44D4C0004FBE39 /* Space.swift */; };
@@ -104,7 +104,7 @@
 /* Begin PBXFileReference section */
 		1906705B1E4B352100D3A7A4 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1906705E1E4B36F700D3A7A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		190670601E4B3B6A00D3A7A4 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		190670601E4B3B6A00D3A7A4 /* StatusItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItem.swift; sourceTree = "<group>"; };
 		19A7AC791E44D493004FBE39 /* SpaceId.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceId.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19A7AC831E44D493004FBE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				19A7AC831E44D493004FBE39 /* Info.plist */,
 				19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */,
 				19A7ACC91E46225E004FBE39 /* ButtonImage.swift */,
-				190670601E4B3B6A00D3A7A4 /* Menu.swift */,
+				190670601E4B3B6A00D3A7A4 /* StatusItem.swift */,
 				1906705B1E4B352100D3A7A4 /* Observer.swift */,
 				19A7AC971E44D4C0004FBE39 /* Space.swift */,
 				19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */,
@@ -377,7 +377,7 @@
 			files = (
 				19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */,
 				19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */,
-				190670611E4B3B6A00D3A7A4 /* Menu.swift in Sources */,
+				190670611E4B3B6A00D3A7A4 /* StatusItem.swift in Sources */,
 				19A7AC7D1E44D493004FBE39 /* AppDelegate.swift in Sources */,
 				19A7AC9C1E44D4C0004FBE39 /* SpaceProperty.swift in Sources */,
 				1906705C1E4B352100D3A7A4 /* Observer.swift in Sources */,

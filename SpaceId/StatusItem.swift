@@ -1,17 +1,20 @@
 import Cocoa
 import Foundation
 
-class Menu: NSObject, NSMenuDelegate {
+class StatusItem: NSObject, NSMenuDelegate {
     
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let item = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     let defaults = UserDefaults.standard
+    let buttonImage = ButtonImage()
+    var currentSpaceNumber = 0
     
     func createMenu() {
-        statusItem.menu = menuItems()
+        item.menu = menuItems()
     }
     
-    func updateMenuImage(image: NSImage) {
-        statusItem.button?.image = image
+    func updateMenuImage(spaceNumber: Int) {
+        currentSpaceNumber = spaceNumber
+        item.button?.image = buttonImage.createImage(text: String(spaceNumber))
     }
     
     func menuItems() -> NSMenu {
@@ -104,26 +107,31 @@ class Menu: NSObject, NSMenuDelegate {
     func oneIcon(_ sender: NSMenuItem) {
         defaults.set(IconOption.oneIcon.rawValue, forKey: "IconOption")
         createMenu()
+        updateMenuImage(spaceNumber: currentSpaceNumber)
     }
     
     func iconPerMonitor(_ sender: NSMenuItem) {
         defaults.set(IconOption.iconPerMonitor.rawValue, forKey: "IconOption")
         createMenu()
+        updateMenuImage(spaceNumber: currentSpaceNumber)
     }
     
     func iconPerSpace(_ sender: NSMenuItem) {
         defaults.set(IconOption.iconPerSpace.rawValue, forKey: "IconOption")
         createMenu()
+        updateMenuImage(spaceNumber: currentSpaceNumber)
     }
     
     func whiteOnBlack(_ sender: NSMenuItem) {
         defaults.set(ColorOption.whiteOnBlack.rawValue, forKey: "ColorOption")
         createMenu()
+        updateMenuImage(spaceNumber: currentSpaceNumber)
     }
     
     func blackOnWhite(_ sender: NSMenuItem) {
         defaults.set(ColorOption.blackOnWhite.rawValue, forKey: "ColorOption")
         createMenu()
+        updateMenuImage(spaceNumber: currentSpaceNumber)
     }
     
     func updateOnLeftClick(_ sender: NSMenuItem) {

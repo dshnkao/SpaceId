@@ -4,6 +4,34 @@ import Foundation
 class ButtonImage {
     
     private let size = CGSize(width: 16, height: 16)
+    private let defaults = UserDefaults.standard
+    
+    func createImage(text: String) -> NSImage {
+        guard let color = ColorOption(rawValue: defaults.integer(forKey: "ColorOption")),
+              let style = IconOption(rawValue: defaults.integer(forKey: "IconOption"))
+        else { return whiteOnBlackOneIcon(text: text) }
+        switch style {
+        case IconOption.oneIcon:
+            if color == ColorOption.blackOnWhite {
+                return blackOnWhiteOneIcon(text: text)
+            } else {
+                return whiteOnBlackOneIcon(text: text)
+            }
+        case IconOption.iconPerMonitor:
+            if color == ColorOption.blackOnWhite {
+                return blackOnWhitePerMonitor(text: text)
+            } else {
+                return whiteOnBlackPerMonitor(text: text)
+            }
+        case IconOption.iconPerSpace:
+            if color == ColorOption.blackOnWhite {
+                return blackOnWhitePerSpace(text: text)
+            } else {
+                return whiteOnBlackPerSpace(text: text)
+            }
+        }
+
+    }
 
     private func textAttributes(color: NSColor) -> [String: Any] {
         let font = NSFont.boldSystemFont(ofSize: 11)
@@ -16,7 +44,7 @@ class ButtonImage {
                ] as [String : Any]
     }
     
-    func borderedSquare(text: String) -> NSImage {
+    private func blackOnWhiteOneIcon(text: String) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         image.lockFocus()
@@ -29,7 +57,7 @@ class ButtonImage {
         return image
     }
     
-    func filledSquare(text: String) -> NSImage {
+    private func whiteOnBlackOneIcon(text: String) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         let image1 = NSImage(size: size)
@@ -51,6 +79,22 @@ class ButtonImage {
         
         image.isTemplate = true
         return image
+    }
+    
+    private func whiteOnBlackPerMonitor(text: String) -> NSImage {
+        return NSImage()
+    }
+    
+    private func blackOnWhitePerMonitor(text:String) -> NSImage {
+        return NSImage()
+    }
+    
+    private func whiteOnBlackPerSpace(text: String) -> NSImage {
+        return NSImage()
+    }
+    
+    private func blackOnWhitePerSpace(text: String) -> NSImage {
+        return NSImage()
     }
     
 }

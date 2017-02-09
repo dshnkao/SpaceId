@@ -43,26 +43,30 @@ class ButtonImage {
                ] as [String : Any]
     }
     
-    private func blackOnWhiteOneIcon(text: String) -> NSImage {
+    private func blackOnWhiteOneIcon(text: String, alpha: CGFloat = 1) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
+        let color = NSColor.init(white: 0, alpha: alpha)
+        let path = NSBezierPath(roundedRect: rect, xRadius: 1, yRadius: 1)
         image.lockFocus()
-        let path = NSBezierPath(roundedRect: rect, xRadius: 3, yRadius: 3)
+        color.set()
         path.lineWidth = 2
         path.stroke()
-        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.black))
+        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: color))
         image.unlockFocus()
         image.isTemplate = true
         return image
     }
     
-    private func whiteOnBlackOneIcon(text: String) -> NSImage {
+    private func whiteOnBlackOneIcon(text: String, alpha: CGFloat = 1) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         let image1 = NSImage(size: size)
         let image2 = NSImage(size: size)
+        let color = NSColor.init(white: 1, alpha: alpha)
         
         image1.lockFocus()
+        color.set()
         let path = NSBezierPath(roundedRect: rect, xRadius: 3, yRadius: 3)
         path.fill()
         image1.unlockFocus()
@@ -80,8 +84,9 @@ class ButtonImage {
         return image
     }
     
-    private func perMonitor(icons: [NSImage], count: Int) -> NSImage {
-        let image = NSImage(size: CGSize(width: (size.width + 1) * CGFloat(count), height: size.height))
+    private func combine(icons: [NSImage], count: Int) -> NSImage {
+        let width = size.width * CGFloat(count) + CGFloat(2 * (count - 1))
+        let image = NSImage(size: CGSize(width: width, height: size.height))
         image.lockFocus()
         var x: CGFloat = 0
         for i in icons {
@@ -96,23 +101,31 @@ class ButtonImage {
     private func whiteOnBlackPerMonitor(spaceInfo: SpaceInfo) -> NSImage {
         let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
         let icons = spaces.map { whiteOnBlackOneIcon(text: getTextForSpace(space: $0)) }
-        return perMonitor(icons: icons, count: spaces.count)
+        return combine(icons: icons, count: spaces.count)
     }
     
     private func blackOnWhitePerMonitor(spaceInfo:SpaceInfo) -> NSImage {
         let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
         let icons = spaces.map { blackOnWhiteOneIcon(text: getTextForSpace(space: $0)) }
-        return perMonitor(icons: icons, count: spaces.count)
+        return combine(icons: icons, count: spaces.count)
     }
     
     private func whiteOnBlackPerSpace(spaceInfo: SpaceInfo) -> NSImage {
-        let all = Array(1...spaceInfo.totalSpaceCount).map { whiteOnBlackOneIcon(text: String($0)) }
-        let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
-        return NSImage()
+        let icons = spaceInfo.allSpaces.map {
+            whiteOnBlackOneIcon(text: getTextForSpace(space: $0), alpha: getAlpha(space: $0))
+        }
+        return combine(icons: icons, count: spaceInfo.allSpaces.count)
     }
     
     private func blackOnWhitePerSpace(spaceInfo: SpaceInfo) -> NSImage {
-        return NSImage()
+        let icons = spaceInfo.allSpaces.map {
+            blackOnWhiteOneIcon(text: getTextForSpace(space: $0), alpha: getAlpha(space: $0))
+        }
+        return combine(icons: icons, count: spaceInfo.allSpaces.count)
+    }
+    
+    private func getAlpha(space: Space) -> CGFloat {
+        return space.isActive ? 1 : 0.4
     }
     
     private func getTextForSpace(space: Space?) -> String {

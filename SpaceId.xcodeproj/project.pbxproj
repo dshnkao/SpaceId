@@ -12,11 +12,8 @@
 		190670611E4B3B6A00D3A7A4 /* StatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190670601E4B3B6A00D3A7A4 /* StatusItem.swift */; };
 		190670631E4C84B100D3A7A4 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190670621E4C84B100D3A7A4 /* Preference.swift */; };
 		19A7AC7D1E44D493004FBE39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */; };
-		19A7AC8D1E44D493004FBE39 /* SpaceIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC8C1E44D493004FBE39 /* SpaceIdTests.swift */; };
 		19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC971E44D4C0004FBE39 /* Space.swift */; };
 		19A7AC9C1E44D4C0004FBE39 /* SpaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC991E44D4C0004FBE39 /* SpaceInfo.swift */; };
-		19A7ACB81E44D8A1004FBE39 /* Swiftz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19A7ACA91E44D866004FBE39 /* Swiftz.framework */; };
-		19A7ACBA1E44D8D8004FBE39 /* Swiftz.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 19A7ACA91E44D866004FBE39 /* Swiftz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19A7ACC41E459839004FBE39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A7ACC31E459839004FBE39 /* Assets.xcassets */; };
 		19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7ACC91E46225E004FBE39 /* ButtonImage.swift */; };
 		19A7ACCE1E46CEC6004FBE39 /* SpaceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */; };
@@ -30,62 +27,6 @@
 			remoteGlobalIDString = 19A7AC781E44D493004FBE39;
 			remoteInfo = SpaceId;
 		};
-		19A7ACA81E44D866004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84A88F981A71DF7F003D53CF;
-			remoteInfo = Swiftz;
-		};
-		19A7ACAA1E44D866004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84A88FA31A71DF7F003D53CF;
-			remoteInfo = SwiftzTests;
-		};
-		19A7ACAC1E44D866004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84DF751E1B0BD17700C912B0;
-			remoteInfo = "Swiftz-iOS";
-		};
-		19A7ACAE1E44D866004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84DF75281B0BD17700C912B0;
-			remoteInfo = "Swiftz-iOSTests";
-		};
-		19A7ACB01E44D866004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8240CD1C1C3A395F00EF4D29;
-			remoteInfo = "Swiftz-tvOS";
-		};
-		19A7ACB21E44D866004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8240CD251C3A396000EF4D29;
-			remoteInfo = "Swiftz-tvOSTests";
-		};
-		19A7ACB41E44D866004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8240CDD81C3A41F000EF4D29;
-			remoteInfo = "Swiftz-watchOS";
-		};
-		19A7ACB61E44D886004FBE39 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 84A88F971A71DF7F003D53CF;
-			remoteInfo = Swiftz;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,7 +36,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				19A7ACBA1E44D8D8004FBE39 /* Swiftz.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,11 +51,8 @@
 		19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19A7AC831E44D493004FBE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A7AC881E44D493004FBE39 /* SpaceIdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceIdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19A7AC8C1E44D493004FBE39 /* SpaceIdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceIdTests.swift; sourceTree = "<group>"; };
-		19A7AC8E1E44D493004FBE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A7AC971E44D4C0004FBE39 /* Space.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
 		19A7AC991E44D4C0004FBE39 /* SpaceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceInfo.swift; sourceTree = "<group>"; };
-		19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swiftz.xcodeproj; path = Dependencies/Swiftz/Swiftz.xcodeproj; sourceTree = "<group>"; };
 		19A7ACC31E459839004FBE39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19A7ACC91E46225E004FBE39 /* ButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonImage.swift; sourceTree = "<group>"; };
 		19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceIdentifier.swift; sourceTree = "<group>"; };
@@ -127,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19A7ACB81E44D8A1004FBE39 /* Swiftz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +80,7 @@
 		19A7AC701E44D493004FBE39 = {
 			isa = PBXGroup;
 			children = (
-				19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */,
 				19A7AC7B1E44D493004FBE39 /* SpaceId */,
-				19A7AC8B1E44D493004FBE39 /* SpaceIdTests */,
 				19A7AC7A1E44D493004FBE39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -179,29 +113,6 @@
 			path = SpaceId;
 			sourceTree = "<group>";
 		};
-		19A7AC8B1E44D493004FBE39 /* SpaceIdTests */ = {
-			isa = PBXGroup;
-			children = (
-				19A7AC8C1E44D493004FBE39 /* SpaceIdTests.swift */,
-				19A7AC8E1E44D493004FBE39 /* Info.plist */,
-			);
-			path = SpaceIdTests;
-			sourceTree = "<group>";
-		};
-		19A7AC9E1E44D866004FBE39 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				19A7ACA91E44D866004FBE39 /* Swiftz.framework */,
-				19A7ACAB1E44D866004FBE39 /* SwiftzTests.xctest */,
-				19A7ACAD1E44D866004FBE39 /* Swiftz.framework */,
-				19A7ACAF1E44D866004FBE39 /* Swiftz-iOSTests.xctest */,
-				19A7ACB11E44D866004FBE39 /* Swiftz.framework */,
-				19A7ACB31E44D866004FBE39 /* Swiftz-tvOSTests.xctest */,
-				19A7ACB51E44D866004FBE39 /* Swiftz.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -228,7 +139,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				19A7ACB71E44D886004FBE39 /* PBXTargetDependency */,
 			);
 			name = SpaceId;
 			productName = SpaceId;
@@ -288,12 +198,6 @@
 			mainGroup = 19A7AC701E44D493004FBE39;
 			productRefGroup = 19A7AC7A1E44D493004FBE39 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 19A7AC9E1E44D866004FBE39 /* Products */;
-					ProjectRef = 19A7AC9D1E44D866004FBE39 /* Swiftz.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				19A7AC781E44D493004FBE39 /* SpaceId */,
@@ -301,58 +205,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		19A7ACA91E44D866004FBE39 /* Swiftz.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Swiftz.framework;
-			remoteRef = 19A7ACA81E44D866004FBE39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		19A7ACAB1E44D866004FBE39 /* SwiftzTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SwiftzTests.xctest;
-			remoteRef = 19A7ACAA1E44D866004FBE39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		19A7ACAD1E44D866004FBE39 /* Swiftz.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Swiftz.framework;
-			remoteRef = 19A7ACAC1E44D866004FBE39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		19A7ACAF1E44D866004FBE39 /* Swiftz-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Swiftz-iOSTests.xctest";
-			remoteRef = 19A7ACAE1E44D866004FBE39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		19A7ACB11E44D866004FBE39 /* Swiftz.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Swiftz.framework;
-			remoteRef = 19A7ACB01E44D866004FBE39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		19A7ACB31E44D866004FBE39 /* Swiftz-tvOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Swiftz-tvOSTests.xctest";
-			remoteRef = 19A7ACB21E44D866004FBE39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		19A7ACB51E44D866004FBE39 /* Swiftz.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Swiftz.framework;
-			remoteRef = 19A7ACB41E44D866004FBE39 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		19A7AC771E44D493004FBE39 /* Resources */ = {
@@ -393,7 +245,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19A7AC8D1E44D493004FBE39 /* SpaceIdTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,11 +255,6 @@
 			isa = PBXTargetDependency;
 			target = 19A7AC781E44D493004FBE39 /* SpaceId */;
 			targetProxy = 19A7AC891E44D493004FBE39 /* PBXContainerItemProxy */;
-		};
-		19A7ACB71E44D886004FBE39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Swiftz;
-			targetProxy = 19A7ACB61E44D886004FBE39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

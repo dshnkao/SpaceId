@@ -8,6 +8,8 @@ class StatusItem: NSObject, NSMenuDelegate {
     private let buttonImage = ButtonImage()
     private var currentSpaceInfo = SpaceInfo(keyboardFocusSpace: nil, activeSpaces: [], allSpaces: [])
     
+    var delegate: ReloadDelegate? = nil
+    
     func createMenu() {
         item.menu = menuItems()
     }
@@ -17,7 +19,7 @@ class StatusItem: NSObject, NSMenuDelegate {
         item.button?.image = buttonImage.createImage(spaceInfo: spaceInfo)
     }
     
-    func menuItems() -> NSMenu {
+    private func menuItems() -> NSMenu {
         let menu = NSMenu()
         let pref = NSMenuItem(title: "Preferences", action: nil, keyEquivalent: "")
         let opt = NSMenuItem(title: "Options", action: nil, keyEquivalent: "")
@@ -92,7 +94,7 @@ class StatusItem: NSObject, NSMenuDelegate {
         leftClick.state = defaults.bool(forKey: Preference.App.updateOnLeftClick.rawValue) ? NSOnState : NSOffState
         appSwitch.state = defaults.bool(forKey: Preference.App.updateOnAppSwitch.rawValue) ? NSOnState : NSOffState
         
-        menu.addItem(NSMenuItem(title: "One Icon Multi Monitor Support", action: nil, keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Enhance Multi Monitor Support", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(leftClick)
         menu.addItem(appSwitch)
@@ -132,13 +134,13 @@ class StatusItem: NSObject, NSMenuDelegate {
     func updateOnLeftClick(_ sender: NSMenuItem) {
         let b = defaults.bool(forKey: Preference.App.updateOnLeftClick.rawValue)
         defaults.set(!b, forKey: Preference.App.updateOnLeftClick.rawValue)
-        createMenu()
+        delegate?.reload()
     }
 
     func updateOnAppSwitch(_ sender: NSMenuItem) {
         let b = defaults.bool(forKey: Preference.App.updateOnAppSwitch.rawValue)
         defaults.set(!b, forKey: Preference.App.updateOnAppSwitch.rawValue)
-        createMenu()
+        delegate?.reload()
     }
     
     func quit(_ sender: NSMenuItem) {

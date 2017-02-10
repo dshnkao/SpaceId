@@ -16,14 +16,13 @@ class SpaceIdentifier {
               let screenNumber = mainDisplay.deviceDescription["NSScreenNumber"] as? UInt32
         else { return SpaceInfo(keyboardFocusSpace: nil, activeSpaces: [], allSpaces: []) }
         
-        //print(monitors)
         let cfuuid = CGDisplayCreateUUIDFromDisplayID(screenNumber).takeRetainedValue()
         let screenUUID = CFUUIDCreateString(kCFAllocatorDefault, cfuuid) as String
-        print(screenUUID)
         let (activeSpaces, allSpaces) = parseSpaces(monitors: monitors)
 
-        print(parseSpaces(monitors: monitors))
-        return SpaceInfo(keyboardFocusSpace: activeSpaces[screenUUID], activeSpaces: activeSpaces.map{ $0.value }, allSpaces: allSpaces)
+        return SpaceInfo(keyboardFocusSpace: activeSpaces[screenUUID],
+                         activeSpaces: activeSpaces.map{ $0.value },
+                         allSpaces: allSpaces)
     }
     
     /* returns a mapping of screen uuids and their active space */

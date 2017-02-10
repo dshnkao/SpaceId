@@ -1,7 +1,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, ReloadDelegate {
     
     let spaceIdentifier = SpaceIdentifier()
     let observer = Observer()
@@ -9,10 +9,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let buttonImage = ButtonImage()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        statusItem.delegate = self
         NSApp.setActivationPolicy(.accessory)
-        observer.addActiveWorkSpaceEvent(using: updateSpaceNumber)
-        observer.addActiveApplicationEvent(using: updateSpaceNumber)
-        observer.addLeftMouseClickEvent(handler: updateSpaceNumber)
+        observer.setupObservers(using: updateSpaceNumber)
+        statusItem.createMenu()
+        updateSpaceNumber(())
+    }
+    
+    func reload() {
+        observer.setupObservers(using: updateSpaceNumber)
         statusItem.createMenu()
         updateSpaceNumber(())
     }
@@ -21,7 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         usleep(10000)
         let info = spaceIdentifier.getSpaceInfo()
         statusItem.updateMenuImage(spaceInfo: info)
-        print(info)
     }
+}
+
+protocol ReloadDelegate {
+    func reload()
 }
 

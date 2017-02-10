@@ -125,7 +125,7 @@ class ButtonImage {
     }
     
     private func getAlpha(space: Space) -> CGFloat {
-        return space.isActive ? 1 : 0.4
+        return space.isActive ? 1 : 0.3
     }
     
     private func getTextForSpace(space: Space?) -> String {

@@ -1,5 +1,6 @@
 import Cocoa
 import Foundation
+import ServiceManagement
 
 class StatusItem: NSObject, NSMenuDelegate {
     
@@ -51,11 +52,16 @@ class StatusItem: NSObject, NSMenuDelegate {
         let empty = NSMenuItem(title: "Black on White",
                                action: #selector(blackOnWhite(_:)),
                                keyEquivalent: "")
+        let launchLogin = NSMenuItem(title: "Launch on Login",
+                                     action: #selector(launchOnLogin(_:)),
+                                     keyEquivalent: "")
+        
         oneIcon.target = self
         perMonitor.target = self
         perSpace.target = self
         fill.target = self
         empty.target = self
+        launchLogin.target = self
         
         switch defaults.integer(forKey: Preference.icon) {
         case 0: oneIcon.state = NSOnState
@@ -70,6 +76,10 @@ class StatusItem: NSObject, NSMenuDelegate {
         default: break
         }
         
+        launchLogin.state = defaults.bool(forKey: Preference.App.launchOnLogin.rawValue) ? NSOnState : NSOffState
+        
+        menu.addItem(launchLogin)
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(oneIcon)
         menu.addItem(perMonitor)
         menu.addItem(perSpace)
@@ -88,12 +98,14 @@ class StatusItem: NSObject, NSMenuDelegate {
                                    action: #selector(updateOnAppSwitch(_:)),
                                    keyEquivalent: "")
 
+
         leftClick.target = self
         appSwitch.target = self
         
         leftClick.state = defaults.bool(forKey: Preference.App.updateOnLeftClick.rawValue) ? NSOnState : NSOffState
         appSwitch.state = defaults.bool(forKey: Preference.App.updateOnAppSwitch.rawValue) ? NSOnState : NSOffState
         
+
         menu.addItem(NSMenuItem(title: "Enhance Multi Monitor Support", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(leftClick)
@@ -143,6 +155,20 @@ class StatusItem: NSObject, NSMenuDelegate {
         delegate?.reload()
     }
     
+    func launchOnLogin(_ sender: NSMenuItem) {
+        let path = Bundle.main.bundlePath
+        let add = "tell application \"System Events\" to make login item at end with properties {name: \"SpaceId\",path:\"\(path)\", hidden:true}"
+        let remove = "tell application \"System Events\" to delete login item \"SpaceId\""
+        let b = !defaults.bool(forKey: Preference.App.launchOnLogin.rawValue)
+        defaults.set(b, forKey: Preference.App.launchOnLogin.rawValue)
+        let task = Process()
+        task.launchPath = "/usr/bin/osascript"
+        task.arguments = b ? ["-e", add] : ["-e", remove]
+        task.launch()
+        createMenu()
+        updateMenuImage(spaceInfo: currentSpaceInfo)
+    }
+
     func quit(_ sender: NSMenuItem) {
         NSApp.terminate(self)
     }

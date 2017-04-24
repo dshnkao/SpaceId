@@ -156,17 +156,9 @@ class StatusItem: NSObject, NSMenuDelegate {
     }
     
     func launchOnLogin(_ sender: NSMenuItem) {
-        let path = Bundle.main.bundlePath
-        let add = "tell application \"System Events\" to make login item at end with properties {name: \"SpaceId\",path:\"\(path)\", hidden:true}"
-        let remove = "tell application \"System Events\" to delete login item \"SpaceId\""
         let b = !defaults.bool(forKey: Preference.App.launchOnLogin.rawValue)
         defaults.set(b, forKey: Preference.App.launchOnLogin.rawValue)
-        let task = Process()
-        task.launchPath = "/usr/bin/osascript"
-        task.arguments = b ? ["-e", add] : ["-e", remove]
-        task.launch()
-        createMenu()
-        updateMenuImage(spaceInfo: currentSpaceInfo)
+        delegate?.reload()
     }
 
     func quit(_ sender: NSMenuItem) {

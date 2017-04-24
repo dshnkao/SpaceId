@@ -129,17 +129,7 @@ class ButtonImage {
     }
     
     private func getTextForSpace(space: Space?) -> String {
-        if let s = space {
-            if let num = s.number  {
-                return String(num)
-            }
-            else {
-                return "F"
-            }
-        }
-        else {
-            return "0"
-        }
+        return space.map { $0.number.map { String($0) } ?? "F" } ?? "0"
     }
     
 }

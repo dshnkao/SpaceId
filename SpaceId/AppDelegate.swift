@@ -9,6 +9,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ReloadDelegate {
     let buttonImage = ButtonImage()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        PFMoveToApplicationsFolderIfNecessary ()
         statusItem.delegate = self
         NSApp.setActivationPolicy(.accessory)
         observer.setupObservers(using: updateSpaceNumber)

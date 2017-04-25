@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1906705C1E4B352100D3A7A4 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1906705B1E4B352100D3A7A4 /* Observer.swift */; };
 		1906705F1E4B36F700D3A7A4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1906705D1E4B36F700D3A7A4 /* MainMenu.xib */; };
-		190670611E4B3B6A00D3A7A4 /* StatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190670601E4B3B6A00D3A7A4 /* StatusItem.swift */; };
-		190670631E4C84B100D3A7A4 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190670621E4C84B100D3A7A4 /* Preference.swift */; };
-		1972EE901EAEE1CF00658284 /* PFMoveApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 1972EE8E1EAEE1CF00658284 /* PFMoveApplication.h */; };
-		1972EE911EAEE1CF00658284 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1972EE8F1EAEE1CF00658284 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		19A7AC7D1E44D493004FBE39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */; };
-		19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC971E44D4C0004FBE39 /* Space.swift */; };
-		19A7AC9C1E44D4C0004FBE39 /* SpaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7AC991E44D4C0004FBE39 /* SpaceInfo.swift */; };
+		1972EE9E1EAEE70100658284 /* PFMoveApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 1972EE9C1EAEE70100658284 /* PFMoveApplication.h */; };
+		1972EE9F1EAEE70100658284 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1972EE9D1EAEE70100658284 /* PFMoveApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1972EEAA1EAEE75A00658284 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA11EAEE75A00658284 /* AppDelegate.swift */; };
+		1972EEAB1EAEE75A00658284 /* ButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA21EAEE75A00658284 /* ButtonImage.swift */; };
+		1972EEAC1EAEE75A00658284 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA31EAEE75A00658284 /* Observer.swift */; };
+		1972EEAD1EAEE75A00658284 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA41EAEE75A00658284 /* Preference.swift */; };
+		1972EEAE1EAEE75A00658284 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA51EAEE75A00658284 /* Space.swift */; };
+		1972EEAF1EAEE75A00658284 /* SpaceId-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 1972EEA61EAEE75A00658284 /* SpaceId-Bridging-Header.h */; };
+		1972EEB01EAEE75A00658284 /* SpaceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA71EAEE75A00658284 /* SpaceIdentifier.swift */; };
+		1972EEB11EAEE75A00658284 /* SpaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA81EAEE75A00658284 /* SpaceInfo.swift */; };
+		1972EEB21EAEE75A00658284 /* StatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972EEA91EAEE75A00658284 /* StatusItem.swift */; };
 		19A7ACC41E459839004FBE39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A7ACC31E459839004FBE39 /* Assets.xcassets */; };
-		19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7ACC91E46225E004FBE39 /* ButtonImage.swift */; };
-		19A7ACCE1E46CEC6004FBE39 /* SpaceIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,22 +46,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1906705B1E4B352100D3A7A4 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1906705E1E4B36F700D3A7A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		190670601E4B3B6A00D3A7A4 /* StatusItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItem.swift; sourceTree = "<group>"; };
-		190670621E4C84B100D3A7A4 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
-		1972EE8E1EAEE1CF00658284 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
-		1972EE8F1EAEE1CF00658284 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+		1972EE9C1EAEE70100658284 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
+		1972EE9D1EAEE70100658284 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+		1972EEA11EAEE75A00658284 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1972EEA21EAEE75A00658284 /* ButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonImage.swift; sourceTree = "<group>"; };
+		1972EEA31EAEE75A00658284 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		1972EEA41EAEE75A00658284 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		1972EEA51EAEE75A00658284 /* Space.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
+		1972EEA61EAEE75A00658284 /* SpaceId-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpaceId-Bridging-Header.h"; sourceTree = "<group>"; };
+		1972EEA71EAEE75A00658284 /* SpaceIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceIdentifier.swift; sourceTree = "<group>"; };
+		1972EEA81EAEE75A00658284 /* SpaceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceInfo.swift; sourceTree = "<group>"; };
+		1972EEA91EAEE75A00658284 /* StatusItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItem.swift; sourceTree = "<group>"; };
 		19A7AC791E44D493004FBE39 /* SpaceId.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceId.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19A7AC831E44D493004FBE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19A7AC881E44D493004FBE39 /* SpaceIdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceIdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19A7AC971E44D4C0004FBE39 /* Space.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
-		19A7AC991E44D4C0004FBE39 /* SpaceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceInfo.swift; sourceTree = "<group>"; };
 		19A7ACC31E459839004FBE39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		19A7ACC91E46225E004FBE39 /* ButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonImage.swift; sourceTree = "<group>"; };
-		19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceIdentifier.swift; sourceTree = "<group>"; };
-		19A7ACD21E46D4BF004FBE39 /* SpaceId-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaceId-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1972EE9B1EAEE70100658284 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1972EE9C1EAEE70100658284 /* PFMoveApplication.h */,
+				1972EE9D1EAEE70100658284 /* PFMoveApplication.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1972EEA01EAEE75A00658284 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				1972EEA11EAEE75A00658284 /* AppDelegate.swift */,
+				1972EEA21EAEE75A00658284 /* ButtonImage.swift */,
+				1972EEA31EAEE75A00658284 /* Observer.swift */,
+				1972EEA41EAEE75A00658284 /* Preference.swift */,
+				1972EEA51EAEE75A00658284 /* Space.swift */,
+				1972EEA71EAEE75A00658284 /* SpaceIdentifier.swift */,
+				1972EEA81EAEE75A00658284 /* SpaceInfo.swift */,
+				1972EEA91EAEE75A00658284 /* StatusItem.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		19A7AC701E44D493004FBE39 = {
 			isa = PBXGroup;
 			children = (
@@ -101,18 +126,10 @@
 		19A7AC7B1E44D493004FBE39 /* SpaceId */ = {
 			isa = PBXGroup;
 			children = (
-				19A7ACD21E46D4BF004FBE39 /* SpaceId-Bridging-Header.h */,
-				1972EE8E1EAEE1CF00658284 /* PFMoveApplication.h */,
-				1972EE8F1EAEE1CF00658284 /* PFMoveApplication.m */,
+				1972EEA61EAEE75A00658284 /* SpaceId-Bridging-Header.h */,
+				1972EEA01EAEE75A00658284 /* Application */,
+				1972EE9B1EAEE70100658284 /* Helper */,
 				19A7AC831E44D493004FBE39 /* Info.plist */,
-				19A7AC7C1E44D493004FBE39 /* AppDelegate.swift */,
-				19A7ACC91E46225E004FBE39 /* ButtonImage.swift */,
-				190670601E4B3B6A00D3A7A4 /* StatusItem.swift */,
-				1906705B1E4B352100D3A7A4 /* Observer.swift */,
-				19A7AC971E44D4C0004FBE39 /* Space.swift */,
-				19A7ACCD1E46CEC6004FBE39 /* SpaceIdentifier.swift */,
-				19A7AC991E44D4C0004FBE39 /* SpaceInfo.swift */,
-				190670621E4C84B100D3A7A4 /* Preference.swift */,
 				19A7ACC31E459839004FBE39 /* Assets.xcassets */,
 				1906705D1E4B36F700D3A7A4 /* MainMenu.xib */,
 			);
@@ -126,7 +143,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1972EE901EAEE1CF00658284 /* PFMoveApplication.h in Headers */,
+				1972EE9E1EAEE70100658284 /* PFMoveApplication.h in Headers */,
+				1972EEAF1EAEE75A00658284 /* SpaceId-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,15 +255,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19A7AC9A1E44D4C0004FBE39 /* Space.swift in Sources */,
-				19A7ACCA1E46225E004FBE39 /* ButtonImage.swift in Sources */,
-				1972EE911EAEE1CF00658284 /* PFMoveApplication.m in Sources */,
-				190670631E4C84B100D3A7A4 /* Preference.swift in Sources */,
-				190670611E4B3B6A00D3A7A4 /* StatusItem.swift in Sources */,
-				19A7AC7D1E44D493004FBE39 /* AppDelegate.swift in Sources */,
-				19A7AC9C1E44D4C0004FBE39 /* SpaceInfo.swift in Sources */,
-				1906705C1E4B352100D3A7A4 /* Observer.swift in Sources */,
-				19A7ACCE1E46CEC6004FBE39 /* SpaceIdentifier.swift in Sources */,
+				1972EEAD1EAEE75A00658284 /* Preference.swift in Sources */,
+				1972EEB21EAEE75A00658284 /* StatusItem.swift in Sources */,
+				1972EEB11EAEE75A00658284 /* SpaceInfo.swift in Sources */,
+				1972EEAE1EAEE75A00658284 /* Space.swift in Sources */,
+				1972EEAC1EAEE75A00658284 /* Observer.swift in Sources */,
+				1972EEAB1EAEE75A00658284 /* ButtonImage.swift in Sources */,
+				1972EE9F1EAEE70100658284 /* PFMoveApplication.m in Sources */,
+				1972EEB01EAEE75A00658284 /* SpaceIdentifier.swift in Sources */,
+				1972EEAA1EAEE75A00658284 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,9 @@ class StatusItem: NSObject, NSMenuDelegate {
         let opt = NSMenuItem(title: "Options", action: nil, keyEquivalent: "")
         let quit = NSMenuItem(title: "Quit", action: #selector(quit(_:)), keyEquivalent: "")
         quit.target = self
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "0"
+        menu.addItem(NSMenuItem(title: "v\(version)", action: nil, keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(pref)
         menu.setSubmenu(preferenceMenu(), for: pref)
         menu.addItem(opt)

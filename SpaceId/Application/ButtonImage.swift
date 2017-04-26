@@ -6,20 +6,28 @@ class ButtonImage {
     private let size = CGSize(width: 16, height: 16)
     private let defaults = UserDefaults.standard
     typealias F = (ButtonImage) -> (SpaceInfo) -> NSImage
-    private let imageDict: [Preference.Icon : [Preference.Color : F]] =
-        [ Preference.Icon.one        : [ Preference.Color.whiteOnBlack : whiteOnBlackOneIcon,
-                                         Preference.Color.blackOnWhite : blackOnWhiteOneIcon],
-          Preference.Icon.perMonitor : [ Preference.Color.whiteOnBlack : whiteOnBlackPerMonitor,
-                                         Preference.Color.blackOnWhite : blackOnWhitePerMonitor],
-          Preference.Icon.perSpace   : [ Preference.Color.whiteOnBlack : whiteOnBlackPerSpace,
-                                         Preference.Color.blackOnWhite : blackOnWhitePerSpace]]
     
     func createImage(spaceInfo: SpaceInfo) -> NSImage {
         guard let icon = Preference.Icon(rawValue: defaults.integer(forKey: Preference.icon)),
-              let color = Preference.Color(rawValue: defaults.integer(forKey: Preference.color)),
-              let f = imageDict[icon]?[color]
-        else { return whiteOnBlackOneIcon(spaceInfo: spaceInfo) }
-        return f(self)(spaceInfo)
+              let color = Preference.Color(rawValue: defaults.integer(forKey: Preference.color))
+        else { return oneIcon(spaceInfo: spaceInfo, color: Preference.Color.blackOnWhite) }
+        switch icon {
+        case Preference.Icon.one:
+            return oneIcon(spaceInfo: spaceInfo, color: color)
+        case Preference.Icon.perMonitor:
+            return perMonitor(spaceInfo: spaceInfo, color: color)
+        case Preference.Icon.perSpace:
+            return perSpace(spaceInfo: spaceInfo, color: color)
+        }
+    }
+
+    private func colorF(color: Preference.Color) -> (String, CGFloat) -> NSImage {
+        switch color {
+        case Preference.Color.blackOnWhite:
+            return blackOnWhite
+        case Preference.Color.whiteOnBlack:
+            return whiteOnBlack
+        }
     }
 
     private func textAttributes(color: NSColor) -> [String: Any] {
@@ -48,7 +56,7 @@ class ButtonImage {
         return image
     }
     
-    private func whiteOnBlack(text: String, alpha: CGFloat = 1) -> NSImage {
+    private func whiteOnBlack(text: String, alpha: CGFloat) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         let image1 = NSImage(size: size)
@@ -88,36 +96,19 @@ class ButtonImage {
         return image
     }
     
-    private func whiteOnBlackOneIcon(spaceInfo: SpaceInfo) -> NSImage {
-        return whiteOnBlack(text: getTextForSpace(space: spaceInfo.keyboardFocusSpace))
+    private func oneIcon(spaceInfo: SpaceInfo, color: Preference.Color) -> NSImage {
+        return colorF(color: color)(getTextForSpace(space: spaceInfo.keyboardFocusSpace), 1)
     }
     
-    private func blackOnWhiteOneIcon(spaceInfo: SpaceInfo) -> NSImage {
-        return blackOnWhite(text: getTextForSpace(space: spaceInfo.keyboardFocusSpace))
-    }
-    
-    private func whiteOnBlackPerMonitor(spaceInfo: SpaceInfo) -> NSImage {
+    private func perMonitor(spaceInfo:SpaceInfo, color: Preference.Color) -> NSImage {
         let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
-        let icons = spaces.map { whiteOnBlack(text: getTextForSpace(space: $0)) }
+        let icons = spaces.map { colorF(color: color)(getTextForSpace(space: $0), 1) }
         return combine(icons: icons, count: spaces.count)
     }
     
-    private func blackOnWhitePerMonitor(spaceInfo:SpaceInfo) -> NSImage {
-        let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
-        let icons = spaces.map { blackOnWhite(text: getTextForSpace(space: $0)) }
-        return combine(icons: icons, count: spaces.count)
-    }
-    
-    private func whiteOnBlackPerSpace(spaceInfo: SpaceInfo) -> NSImage {
+    private func perSpace(spaceInfo: SpaceInfo, color: Preference.Color) -> NSImage {
         let icons = spaceInfo.allSpaces.map {
-            whiteOnBlack(text: getTextForSpace(space: $0), alpha: getAlpha(space: $0))
-        }
-        return combine(icons: icons, count: spaceInfo.allSpaces.count)
-    }
-    
-    private func blackOnWhitePerSpace(spaceInfo: SpaceInfo) -> NSImage {
-        let icons = spaceInfo.allSpaces.map {
-            blackOnWhite(text: getTextForSpace(space: $0), alpha: getAlpha(space: $0))
+            colorF(color: color)(getTextForSpace(space: $0), getAlpha(space: $0))
         }
         return combine(icons: icons, count: spaceInfo.allSpaces.count)
     }

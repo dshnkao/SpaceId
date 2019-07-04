@@ -30,15 +30,15 @@ class ButtonImage {
         }
     }
 
-    private func textAttributes(color: NSColor) -> [String: Any] {
+    private func textAttributes(color: NSColor) -> [NSAttributedString.Key: Any] {
         let font = NSFont.boldSystemFont(ofSize: 11)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
         
-        return [ NSFontAttributeName: font,
-                 NSForegroundColorAttributeName: color,
-                 NSParagraphStyleAttributeName: paragraphStyle
-               ] as [String : Any]
+        return [ .font: font,
+                 .foregroundColor: color,
+                 .paragraphStyle: paragraphStyle
+               ]
     }
     
     private func blackOnWhite(text: String, alpha: CGFloat = 1) -> NSImage {
@@ -124,9 +124,17 @@ class ButtonImage {
 }
 
 extension NSString {
-    func drawVerticallyCentered(in rect: CGRect, withAttributes attributes: [String : Any]? = nil) {
+    func drawVerticallyCentered(
+        in rect: CGRect,
+        withAttributes attributes: [NSAttributedString.Key : Any]? = nil)
+    {
         let size = self.size(withAttributes: attributes)
-        let centeredRect = CGRect(x: rect.origin.x, y: rect.origin.y + (rect.size.height-size.height)/2.0, width: rect.size.width, height: size.height)
+        let centeredRect = CGRect(
+            x: rect.origin.x,
+            y: rect.origin.y + (rect.size.height-size.height)/2.0,
+            width: rect.size.width,
+            height: size.height
+        )
         self.draw(in: centeredRect, withAttributes: attributes)
     }
 }

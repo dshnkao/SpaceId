@@ -27,26 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19A7AC781E44D493004FBE39"
-            BuildableName = "SpaceId.app"
-            BlueprintName = "SpaceId"
-            ReferencedContainer = "container:SpaceId.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19A7AC871E44D493004FBE39"
-               BuildableName = "SpaceIdTests.xctest"
-               BlueprintName = "SpaceIdTests"
-               ReferencedContainer = "container:SpaceId.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -11,17 +11,18 @@ class ButtonImage {
         guard let icon = Preference.Icon(rawValue: defaults.integer(forKey: Preference.icon)),
               let color = Preference.Color(rawValue: defaults.integer(forKey: Preference.color))
         else { return oneIcon(spaceInfo: spaceInfo, color: Preference.Color.blackOnWhite) }
+        let underline = defaults.bool(forKey: Preference.App.underlineActiveMonitor.rawValue)
         switch icon {
         case Preference.Icon.one:
             return oneIcon(spaceInfo: spaceInfo, color: color)
         case Preference.Icon.perMonitor:
-            return perMonitor(spaceInfo: spaceInfo, color: color)
+            return perMonitor(spaceInfo: spaceInfo, color: color, underlineActiveMonitor: underline)
         case Preference.Icon.perSpace:
-            return perSpace(spaceInfo: spaceInfo, color: color)
+            return perSpace(spaceInfo: spaceInfo, color: color, underlineActiveMonitor: underline)
         }
     }
 
-    private func colorF(color: Preference.Color) -> (String, CGFloat) -> NSImage {
+    private func colorF(color: Preference.Color) -> (String, CGFloat, Bool) -> NSImage {
         switch color {
         case Preference.Color.blackOnWhite:
             return blackOnWhite
@@ -30,18 +31,19 @@ class ButtonImage {
         }
     }
 
-    private func textAttributes(color: NSColor) -> [NSAttributedString.Key: Any] {
+    private func textAttributes(color: NSColor, underline: Bool) -> [NSAttributedString.Key: Any] {
         let font = NSFont.boldSystemFont(ofSize: 11)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.center
         
         return [ .font: font,
                  .foregroundColor: color,
-                 .paragraphStyle: paragraphStyle
+                 .paragraphStyle: paragraphStyle,
+                 .underlineStyle: underline
                ]
     }
     
-    private func blackOnWhite(text: String, alpha: CGFloat = 1) -> NSImage {
+    private func blackOnWhite(text: String, alpha: CGFloat = 1, underline: Bool) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         let color = NSColor.init(white: 0, alpha: alpha)
@@ -50,13 +52,13 @@ class ButtonImage {
         color.set()
         path.lineWidth = 2
         path.stroke()
-        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: color))
+        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: color, underline: underline))
         image.unlockFocus()
         image.isTemplate = true
         return image
     }
     
-    private func whiteOnBlack(text: String, alpha: CGFloat) -> NSImage {
+    private func whiteOnBlack(text: String, alpha: CGFloat, underline: Bool) -> NSImage {
         let rect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         let image = NSImage(size: size)
         let image1 = NSImage(size: size)
@@ -70,7 +72,7 @@ class ButtonImage {
         image1.unlockFocus()
         
         image2.lockFocus()
-        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.black))
+        text.drawVerticallyCentered(in: rect, withAttributes: textAttributes(color: NSColor.black, underline: underline))
         image2.unlockFocus()
 
         image.lockFocus()
@@ -97,18 +99,20 @@ class ButtonImage {
     }
     
     private func oneIcon(spaceInfo: SpaceInfo, color: Preference.Color) -> NSImage {
-        return colorF(color: color)(getTextForSpace(space: spaceInfo.keyboardFocusSpace), 1)
+        return colorF(color: color)(getTextForSpace(space: spaceInfo.keyboardFocusSpace), 1, false)
     }
     
-    private func perMonitor(spaceInfo:SpaceInfo, color: Preference.Color) -> NSImage {
+    private func perMonitor(spaceInfo:SpaceInfo, color: Preference.Color, underlineActiveMonitor: Bool) -> NSImage {
         let spaces = spaceInfo.activeSpaces.sorted{ $0.order < $1.order }
-        let icons = spaces.map { colorF(color: color)(getTextForSpace(space: $0), 1) }
+        let icons = spaces.map {
+            colorF(color: color)(getTextForSpace(space: $0), 1, underlineActiveMonitor ? $0.uuid == spaceInfo.keyboardFocusSpace?.uuid : false)
+        }
         return combine(icons: icons, count: spaces.count)
     }
     
-    private func perSpace(spaceInfo: SpaceInfo, color: Preference.Color) -> NSImage {
+    private func perSpace(spaceInfo: SpaceInfo, color: Preference.Color, underlineActiveMonitor: Bool) -> NSImage {
         let icons = spaceInfo.allSpaces.map {
-            colorF(color: color)(getTextForSpace(space: $0), getAlpha(space: $0))
+            colorF(color: color)(getTextForSpace(space: $0), getAlpha(space: $0), underlineActiveMonitor ? $0.uuid == spaceInfo.keyboardFocusSpace?.uuid : false)
         }
         return combine(icons: icons, count: spaceInfo.allSpaces.count)
     }

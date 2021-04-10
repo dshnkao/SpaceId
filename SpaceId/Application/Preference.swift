@@ -26,6 +26,7 @@ class Preference {
     enum App: String {
         case updateOnLeftClick
         case updateOnAppSwitch
+        case underlineActiveMonitor
         case launchOnLogin
     }
 }

@@ -100,20 +100,27 @@ class StatusItem: NSObject, NSMenuDelegate {
         let appSwitch = NSMenuItem(title: "Update on Application Switch",
                                    action: #selector(updateOnAppSwitch(_:)),
                                    keyEquivalent: "")
+        let underlineActiveMonitor = NSMenuItem(title: "Underline Active Monitor",
+                                                action: #selector(underlineActiveMonitor(_:)),
+                                                keyEquivalent: "")
 
 
         leftClick.target = self
         appSwitch.target = self
+        underlineActiveMonitor.target = self
         
         leftClick.state = defaults.bool(forKey: Preference.App.updateOnLeftClick.rawValue) ?
             NSControl.StateValue.on : NSControl.StateValue.off
         appSwitch.state = defaults.bool(forKey: Preference.App.updateOnAppSwitch.rawValue) ?
+            NSControl.StateValue.on : NSControl.StateValue.off
+        underlineActiveMonitor.state = defaults.bool(forKey: Preference.App.underlineActiveMonitor.rawValue) ?
             NSControl.StateValue.on : NSControl.StateValue.off
         
         menu.addItem(NSMenuItem(title: "Enhance Multi Monitor Support", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(leftClick)
         menu.addItem(appSwitch)
+        menu.addItem(underlineActiveMonitor)
         return menu
     }
     
@@ -156,6 +163,12 @@ class StatusItem: NSObject, NSMenuDelegate {
     @objc func updateOnAppSwitch(_ sender: NSMenuItem) {
         let b = defaults.bool(forKey: Preference.App.updateOnAppSwitch.rawValue)
         defaults.set(!b, forKey: Preference.App.updateOnAppSwitch.rawValue)
+        delegate?.reload()
+    }
+    
+    @objc func underlineActiveMonitor(_ sender: NSMenuItem) {
+        let b = defaults.bool(forKey: Preference.App.underlineActiveMonitor.rawValue)
+        defaults.set(!b, forKey: Preference.App.underlineActiveMonitor.rawValue)
         delegate?.reload()
     }
     

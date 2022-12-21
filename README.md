@@ -1,7 +1,5 @@
 # macOS space indicator
 
-[Download](https://github.com/dshnkao/SpaceId/releases)
-
 ![](https://raw.githubusercontent.com/dshnkao/SpaceId/master/images/a.png)
 ![](https://raw.githubusercontent.com/dshnkao/SpaceId/master/images/b.png)
 ![](https://raw.githubusercontent.com/dshnkao/SpaceId/master/images/c.png)
@@ -15,6 +13,15 @@
 ![](https://raw.githubusercontent.com/dshnkao/SpaceId/master/images/k.png)
 ![](https://raw.githubusercontent.com/dshnkao/SpaceId/master/images/l.png)
 
+## Install
+
+```shell
+brew install --cask spaceid
+```
+
+Or download and install the [latest release](https://github.com/dshnkao/SpaceId/releases).
+
 ## Credits
+
 * This project is inspired by [WhichSpace](https://github.com/gechr/WhichSpace/).
 * Icon made by [Lucy G](http://bylucyg.com) from [FLATICON](http://www.flaticon.com) under [CC By 3.0](https://creativecommons.org/licenses/by/3.0/)
